@@ -48,4 +48,29 @@ public class TestStringCalculator {
 		int shouldBeThree = sc.add("1\n2");
 		assertEquals(3, shouldBeThree);
 	}
+	
+	@Test
+	public void testCRAndColonSeparator() {
+		int shouldBeSix = sc.add("1\n2,3");
+		assertEquals(6, shouldBeSix);
+	}
+	
+	@Test
+	public void testCustomSeparatos() {
+		int shouldBeSix = sc.add("//@\n1@2@3");
+		assertEquals(6, shouldBeSix);
+	}
+	
+	/*
+	@Test
+	public void testContiguousSeparatorDoesentWork() {
+		NumberFormatException lanzada = null;
+		try{
+			sc.add("1\n,2");
+		}catch(NumberFormatException e){
+			lanzada = e;
+		}
+		assertNotNull(lanzada);
+	}
+	*/
 }
