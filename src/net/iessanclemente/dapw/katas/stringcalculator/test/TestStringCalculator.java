@@ -2,6 +2,7 @@ package net.iessanclemente.dapw.katas.stringcalculator.test;
 
 import static org.junit.Assert.*;
 import net.iessanclemente.dapw.katas.stringcalculator.StringCalculator;
+import net.iessanclemente.dapw.katas.stringcalculator.exception.NegativesNotSupportedException;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -61,16 +62,26 @@ public class TestStringCalculator {
 		assertEquals(6, shouldBeSix);
 	}
 	
-	/*
+	
 	@Test
 	public void testContiguousSeparatorDoesentWork() {
 		NumberFormatException lanzada = null;
 		try{
-			sc.add("1\n,2");
+			sc.add("1\n,3");
 		}catch(NumberFormatException e){
 			lanzada = e;
 		}
 		assertNotNull(lanzada);
 	}
-	*/
+	
+	@Test
+	public void testNegativesNotSuppoertedException() {
+		NegativesNotSupportedException lanzada = null;
+		try{
+			sc.add("1,-3");
+		}catch(NegativesNotSupportedException e){
+			lanzada = e;
+		}
+		assertNotNull(lanzada);
+	}
 }
